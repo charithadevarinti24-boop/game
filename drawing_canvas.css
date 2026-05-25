@@ -84,14 +84,20 @@ body {
 
 .toolbar {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 12px;
-  align-items: flex-end;
   padding: 14px 16px;
   margin-bottom: 16px;
   background: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius);
+}
+
+.toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
 }
 
 .tool-group {
@@ -165,7 +171,46 @@ body {
 }
 
 .option input[type="range"] {
-  width: 120px;
+  width: 100px;
+  accent-color: var(--accent);
+}
+
+.swatches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s, border-color 0.12s;
+}
+
+.swatch:hover {
+  transform: scale(1.08);
+}
+
+.swatch.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle input {
   accent-color: var(--accent);
 }
 
@@ -227,6 +272,18 @@ body {
 
 #board.tool-fill {
   cursor: copy;
+}
+
+#board.tool-eyedropper {
+  cursor: grab;
+}
+
+#board.tool-text {
+  cursor: text;
+}
+
+#board.tool-spray {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Ccircle cx='8' cy='8' r='3' fill='%238b8fa8'/%3E%3C/svg%3E") 8 8, crosshair;
 }
 
 .hint {
