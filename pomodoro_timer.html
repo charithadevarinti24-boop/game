@@ -3,19 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pomodoro Timer</title>
-   <link rel="stylesheet" href="pomodoro_timer.css">
+  <title>Pomodoro — Focus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="pomodoro_timer.css">
 </head>
-<body>
-  <div class="container">
-    <h1 class="title">Pomodoro Timer</h1>
-    <p class="timer" id="timer">25:00</p>
-    <div class="button-wrapper">
-      <button  id="start">Start</button>
-      <button  id="stop">Stop</button>
-      <button id="reset">Reset</button>
-    </div>
+<body data-mode="focus">
+  <div class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon" aria-hidden="true">🍅</span>
+        <h1 class="title">Pomodoro</h1>
+      </div>
+      <div class="header-actions">
+        <div class="session-badge" title="Completed focus sessions today">
+          <span class="session-count" id="sessionCount">0</span>
+          <span class="session-label">today</span>
+        </div>
+        <button type="button" class="btn-icon" id="settingsToggle" aria-label="Settings" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <nav class="mode-tabs" role="tablist" aria-label="Timer mode">
+      <button type="button" class="mode-tab active" role="tab" aria-selected="true" data-mode="focus">Focus</button>
+      <button type="button" class="mode-tab" role="tab" aria-selected="false" data-mode="short">Short break</button>
+      <button type="button" class="mode-tab" role="tab" aria-selected="false" data-mode="long">Long break</button>
+    </nav>
+
+    <section class="timer-card">
+      <p class="mode-label" id="modeLabel">Time to focus</p>
+
+      <div class="ring-wrap">
+        <svg class="progress-ring" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring-bg" cx="60" cy="60" r="54"/>
+          <circle class="ring-progress" id="ringProgress" cx="60" cy="60" r="54"/>
+        </svg>
+        <div class="timer-display">
+          <span class="timer" id="timer" aria-live="polite">25:00</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button type="button" class="btn btn-primary" id="startPause">
+          <span class="btn-icon-start" aria-hidden="true">▶</span>
+          <span id="startPauseLabel">Start</span>
+        </button>
+        <button type="button" class="btn btn-secondary" id="reset">Reset</button>
+        <button type="button" class="btn btn-ghost" id="skip" title="Skip to next phase">Skip</button>
+      </div>
+    </section>
+
+    <aside class="settings-panel" id="settingsPanel" hidden>
+      <h2 class="settings-title">Settings</h2>
+      <div class="settings-grid">
+        <label class="field">
+          <span>Focus (min)</span>
+          <input type="number" id="focusMinutes" min="1" max="120" value="25">
+        </label>
+        <label class="field">
+          <span>Short break (min)</span>
+          <input type="number" id="shortMinutes" min="1" max="60" value="5">
+        </label>
+        <label class="field">
+          <span>Long break (min)</span>
+          <input type="number" id="longMinutes" min="1" max="60" value="15">
+        </label>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="autoStart">
+        <span>Auto-start next phase</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="soundEnabled" checked>
+        <span>Sound when finished</span>
+      </label>
+      <button type="button" class="btn btn-secondary btn-block" id="saveSettings">Save settings</button>
+    </aside>
+
+    <p class="hint">Space — start/pause · R — reset</p>
   </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="pomodoro_timer.js"></script>
 </body>
