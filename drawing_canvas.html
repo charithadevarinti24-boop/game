@@ -27,69 +27,104 @@
     </header>
 
     <aside class="toolbar" role="toolbar" aria-label="Drawing tools">
-      <div class="tool-group" role="group" aria-label="Tools">
-        <button type="button" class="tool active" data-tool="pen" title="Pen (P)" aria-pressed="true">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-          </svg>
-          <span class="tool-label">Pen</span>
-        </button>
-        <button type="button" class="tool" data-tool="eraser" title="Eraser (E)" aria-pressed="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M20 20H7L3 16l10-10 7 7-10 10z"/>
-            <path d="M13.5 6.5l4 4"/>
-          </svg>
-          <span class="tool-label">Eraser</span>
-        </button>
-        <button type="button" class="tool" data-tool="line" title="Line (L)" aria-pressed="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <line x1="5" y1="19" x2="19" y2="5"/>
-          </svg>
-          <span class="tool-label">Line</span>
-        </button>
-        <button type="button" class="tool" data-tool="rect" title="Rectangle (R)" aria-pressed="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="1"/>
-          </svg>
-          <span class="tool-label">Rect</span>
-        </button>
-        <button type="button" class="tool" data-tool="circle" title="Circle (C)" aria-pressed="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="9"/>
-          </svg>
-          <span class="tool-label">Circle</span>
-        </button>
-        <button type="button" class="tool" data-tool="fill" title="Fill bucket (F)" aria-pressed="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M19 11l-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2a2 2 0 0 0 2.8 0L19 11z"/>
-            <path d="M5 2l5 5"/>
-            <path d="M2 13h15"/>
-            <path d="M22 20a2 2 0 0 1-2 2v0a2 2 0 0 1-2-2v-2h4v2z"/>
-          </svg>
-          <span class="tool-label">Fill</span>
-        </button>
+      <div class="toolbar-row">
+        <div class="tool-group" role="group" aria-label="Draw tools">
+          <button type="button" class="tool active" data-tool="pen" title="Pen (P)" aria-pressed="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/></svg>
+            <span class="tool-label">Pen</span>
+          </button>
+          <button type="button" class="tool" data-tool="highlighter" title="Highlighter (H)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 11l-6 6v3h3l6-6"/><path d="M22 2l-5 5"/></svg>
+            <span class="tool-label">Hi-lite</span>
+          </button>
+          <button type="button" class="tool" data-tool="spray" title="Spray (S)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="2"/><circle cx="8" cy="8" r="1"/><circle cx="16" cy="9" r="1"/><circle cx="10" cy="16" r="1"/><circle cx="15" cy="15" r="1"/></svg>
+            <span class="tool-label">Spray</span>
+          </button>
+          <button type="button" class="tool" data-tool="eraser" title="Eraser (E)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 20H7L3 16l10-10 7 7-10 10z"/></svg>
+            <span class="tool-label">Erase</span>
+          </button>
+        </div>
+
+        <div class="tool-group" role="group" aria-label="Shape tools">
+          <button type="button" class="tool" data-tool="line" title="Line (L)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="19" x2="19" y2="5"/></svg>
+            <span class="tool-label">Line</span>
+          </button>
+          <button type="button" class="tool" data-tool="arrow" title="Arrow (A)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="15 8 19 12 15 16"/></svg>
+            <span class="tool-label">Arrow</span>
+          </button>
+          <button type="button" class="tool" data-tool="rect" title="Rectangle (R)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/></svg>
+            <span class="tool-label">Rect</span>
+          </button>
+          <button type="button" class="tool" data-tool="circle" title="Circle (C)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/></svg>
+            <span class="tool-label">Circle</span>
+          </button>
+          <button type="button" class="tool" data-tool="triangle" title="Triangle (T)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3L3 21h18L12 3z"/></svg>
+            <span class="tool-label">Tri</span>
+          </button>
+        </div>
+
+        <div class="tool-group" role="group" aria-label="Utility tools">
+          <button type="button" class="tool" data-tool="fill" title="Fill bucket (F)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 11l-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2a2 2 0 0 0 2.8 0L19 11z"/><path d="M2 13h15"/></svg>
+            <span class="tool-label">Fill</span>
+          </button>
+          <button type="button" class="tool" data-tool="eyedropper" title="Eyedropper (I)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 22l1-1"/><path d="M7 17l5-5"/><path d="M16 8l-2-2"/><path d="M20 4l-2 2-3-3 4-4-3 3 3 3-4-4z"/></svg>
+            <span class="tool-label">Pick</span>
+          </button>
+          <button type="button" class="tool" data-tool="text" title="Text (X)" aria-pressed="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="4 7 4 4 20 4 20 7"/><line x1="12" y1="4" x2="12" y2="20"/><line x1="8" y1="20" x2="16" y2="20"/></svg>
+            <span class="tool-label">Text</span>
+          </button>
+        </div>
       </div>
 
-      <div class="tool-group options">
-        <label class="option color-option" title="Stroke color">
-          <span class="option-label">Color</span>
-          <input type="color" id="colorPicker" value="#e85d75" aria-label="Stroke color">
-        </label>
-        <label class="option">
-          <span class="option-label">Size <output id="sizeValue">4</output>px</span>
-          <input type="range" id="brushSize" min="1" max="48" value="4" aria-label="Brush size">
-        </label>
-        <label class="option fill-option" id="fillColorWrap" hidden>
-          <span class="option-label">Fill</span>
-          <input type="color" id="fillColorPicker" value="#7b8cde" aria-label="Shape fill color">
-        </label>
-      </div>
+      <div class="toolbar-row">
+        <div class="swatches" role="group" aria-label="Color swatches" id="swatches"></div>
 
-      <div class="tool-group actions" role="group" aria-label="Actions">
-        <button type="button" class="btn btn-secondary" id="undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
-        <button type="button" class="btn btn-secondary" id="clear" title="Clear canvas">Clear</button>
-        <button type="button" class="btn btn-primary" id="download" title="Download PNG">Save PNG</button>
+        <div class="tool-group options">
+          <label class="option color-option" title="Stroke color">
+            <span class="option-label">Stroke</span>
+            <input type="color" id="colorPicker" value="#e85d75" aria-label="Stroke color">
+          </label>
+          <label class="option fill-option" id="fillColorWrap" hidden>
+            <span class="option-label">Fill</span>
+            <input type="color" id="fillColorPicker" value="#7b8cde" aria-label="Shape fill color">
+          </label>
+          <label class="option" id="bgColorWrap">
+            <span class="option-label">Canvas</span>
+            <input type="color" id="bgColorPicker" value="#ffffff" aria-label="Canvas background">
+          </label>
+          <label class="option">
+            <span class="option-label">Size <output id="sizeValue">4</output>px</span>
+            <input type="range" id="brushSize" min="1" max="64" value="4" aria-label="Brush size">
+          </label>
+          <label class="option">
+            <span class="option-label">Opacity <output id="opacityValue">100</output>%</span>
+            <input type="range" id="strokeOpacity" min="5" max="100" value="100" aria-label="Stroke opacity">
+          </label>
+          <label class="toggle shape-fill-toggle" id="shapeFillToggle" hidden>
+            <input type="checkbox" id="shapeFill" checked>
+            <span>Fill shapes</span>
+          </label>
+        </div>
+
+        <div class="tool-group actions" role="group" aria-label="Actions">
+          <button type="button" class="btn btn-secondary" id="undo" title="Undo (Ctrl+Z)" disabled>Undo</button>
+          <button type="button" class="btn btn-secondary" id="redo" title="Redo (Ctrl+Y)" disabled>Redo</button>
+          <button type="button" class="btn btn-secondary" id="importBtn" title="Import image">Import</button>
+          <input type="file" id="importFile" accept="image/*" hidden>
+          <button type="button" class="btn btn-secondary" id="copyBtn" title="Copy to clipboard">Copy</button>
+          <button type="button" class="btn btn-secondary" id="clear" title="Clear canvas">Clear</button>
+          <button type="button" class="btn btn-primary" id="download" title="Download PNG">Save PNG</button>
+        </div>
       </div>
     </aside>
 
@@ -97,7 +132,7 @@
       <canvas id="board" aria-label="Drawing board"></canvas>
     </main>
 
-    <p class="hint">P pen · E eraser · L line · R rect · C circle · F fill · Ctrl+Z undo</p>
+    <p class="hint">P pen · H hi-lite · S spray · A arrow · T triangle · I pick · X text · Ctrl+Z/Y undo/redo</p>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
